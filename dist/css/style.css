@@ -301,7 +301,7 @@ button {
   height: 0;
   transition: all 1s ease-in-out;
 }
-.app-container__location-list.show button::after {
+.app-container__location-list.show #viewLocations::after {
   content: "Close";
 }
 .app-container__location-list.show ul {

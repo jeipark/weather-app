@@ -290,7 +290,7 @@ button {
      }
     
      &.show {
-      button::after {
+      #viewLocations::after {
         content: "Close";
       }
 
