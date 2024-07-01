@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather App</title>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet" href="dist/css/style.css">
+  <script type="text/javascript" src="dist/scripts/scripts.js" defer></script>
+</head>
+
+<body>
+  <main>
+    <section>
+      <div class="app-container">
+        <div class="app-container__top">
+          <div class="app-container__weather">
+            <form id="cityForm" class="app-container__form">
+              <input id="cityInput" type="text" class="app-container__input" name="field-search-city" placeholder="Enter City">
+              <label for ="searchCity">Enter City</label>
+              <button type="submit" class="app-container__button app-container__button-search material-symbols-outlined">Search</button>
+            </form>
+            <div id="todayIcon" class="app-container__icon">
+            </div>
+          </div>
+        </div>
+        <div class="app-container__bottom">
+          <div id="todayDate" class="app-container__date"></div>
+          <div id="cityState" class="app-container__location">
+            <h2></h2>
+          </div>
+          <div id="saveCity" class="app-container__favorite-button">
+            <button id="saveLocation" type="submit"><span class="material-symbols-outlined">heart_plus</span></button>
+          </div>
+          <ul class="app-container__current-weather">
+            <li class="app-container__temperature app-container__current-weather-details">
+              <h4>Temperature</h4>
+              <h5 id="todayTemp"></h5>
+            </li>
+            <li class="app-container__humidity app-container__current-weather-details">
+              <h4>Humidity</h4>
+              <h5 id="todayHumidity"></h5>
+            </li>
+          </ul>
+          <ul id="forecastDates" class="app-container__forecast">
+          </ul>
+
+          <div id="savedLocationsList" class="app-container__location-list hide">
+            <button id="viewLocations"><span class="material-symbols-outlined">favorite</span></button>
+            <ul id="savedLocations" class="app-container__saved-cities"></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="popup-container">
+      <div class="popup"></div>
+    </div>
+  </main>
+
+  <footer>
+  </footer>
+</body>
+
+</html>

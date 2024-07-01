@@ -1,0 +1,351 @@
+/*
+  REQUIREMENTS:
+  - Cascade Layers for organization
+  - CSS grid and flexbox for layout
+  - Implement CSS custom properties (variables) and CSS grid template areas
+  - clamp(), min(), and calc() functions
+  - Implement Container Queries to display UI
+  - Cross browser compatibility, feature queries to handle unsupported CSS features gracefully
+
+  - resets, defaults, themes, frameworks, design systems, components, utilities, and overrides
+*/
+
+/* Body */
+body {
+  background: #93d7f9;
+  color: #00588b;
+  font-family: $font-family;
+  font-weight: $regular;
+  font-size: 16px;
+  line-height: 24px;
+  margin: 0;
+  padding: 0;
+  height: 100%; 
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: clamp(.8rem, 2.5vw, 1rem);
+  font-weight: $regular;
+  margin: 0;
+}
+
+ul {
+  @include list-reset;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* Weather Container */
+.app-container {
+  background: #fefffc;
+  text-align: center;
+  width: clamp(300px, 100%, 500px);
+  margin: clamp(0px, 3rem, 3rem) auto;
+  border-radius: 1rem;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.25);
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-template-columns: 1fr;
+  gap: 10px;
+
+  @media screen and (max-width: breakpoint(l-mobile)) {
+    margin-top: 0;
+    margin-bottom: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  &__top {
+    padding: 3rem 0 0 0;
+    grid-column: 1;
+    grid-row: 1; 
+  }
+
+  &__bottom {
+    position: relative;
+    background: linear-gradient(0deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 70%, rgba(255, 255, 255, 0) 100%);
+    padding: 0 0 clamp(2rem, 4vw, 3rem) 0;
+    border-radius: 1rem;
+    grid-column: 1;
+    grid-row: 2;
+    margin-top: -6rem;
+  }
+
+  &__weather {
+    @include flex-column;
+
+    &--icon {
+      @include flex-column;
+      height: 200px;
+
+      img {
+        width: clamp(50px, 10vw, 100px);
+        margin: 0 auto;
+      }
+    }
+  }
+
+  &__form {
+    @include flex-row;
+    //background: $white;
+    margin: 0 auto;
+    position: relative;
+
+    input {
+      font-size: 1.3rem;
+      height: 40px;
+      padding: 0 1rem;
+      color: #00588b;
+      border: none;
+      background: #edeef0;
+      border-radius: 10px 0 0 10px;
+      width: clamp(100%, 100%, 400px);
+      transition: all .3s ease;
+
+      &:focus + label,
+      &:not(:focus):not(:placeholder-shown) + label {
+        color: #cccccc;
+        font-size: .8rem;
+        top: -20px;
+        border-radius: 10px;
+      }
+
+      &:focus + label {
+        color: #00588b;
+      }
+
+      &:focus {
+        border: none;
+        outline: none;
+      }
+
+      &:focus::placeholder {
+        color: #edeef0;
+      }
+    }
+
+    label {
+      position: absolute;
+      cursor: text;
+      z-index: 2;
+      top: 9px;
+      left: 10px;
+      font-size: 0;
+      font-weight: $regular;
+      background: transparent;
+      padding: 0 7px;
+      color: transparent;
+      transition: all .3s ease;
+    }
+  }
+
+  &__button-search {
+    background: #dedfe5;
+    border: none;
+    border-radius: 0 10px 10px 0;
+    color: #00588b;
+    padding: .5rem;
+    cursor: pointer;
+    opacity: .5;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &__icon {
+    background: #fee317;
+    background: radial-gradient(at center, rgba(251, 231, 130, .8) 30%, rgba(255, 255, 255, 0) 50%);
+
+    &.day {
+      background: #fee317;
+      background: radial-gradient(at center, rgba(251, 231, 130, .8) 30%, rgba(255, 255, 255, 0) 50%);
+    }
+    
+    &.night {
+      background: rgb(60, 59, 54);
+      background: radial-gradient(at center, rgba(60, 59, 54, .8) 30%, rgba(255, 255, 255, 0) 50%);  
+    }
+
+    img {
+      width: clamp(100%, 50%, 250px);
+      height: auto;
+      clip-path: circle(40%);   
+    }
+  }
+
+  &__location {
+    @include flex-column;
+    font-size: 2rem;
+    padding: clamp(1rem, 2vw, 2rem) 0 clamp(0.5rem, 1vw, 1rem);
+  }
+
+  &__favorite-button,
+  &__button-save {
+    position: absolute;
+    right: 2rem;
+    margin: -2rem 0 0 .5rem;
+    height: 28px;
+    width: 28px;
+    display: inline-block;
+    border-radius: 50%;
+    line-height: .9;
+    font-size: 2rem;
+    cursor: pointer;
+    opacity: .5;
+    margin-top: -5rem;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    button {
+      @include flex-column;
+      aspect-ratio: 1;
+      padding: 0;
+      border: none;
+      background: transparent;
+
+      span {
+        background: #fe5e80;
+        margin-left: 2px;
+        padding: 3px;
+        border: 1px solid #f94534;
+        border-radius: 5px;
+        color: #fff;
+      }
+    }
+  }
+
+  &__date {
+    @include flex-column;
+  }
+
+  &__current-weather {
+    @include flex-row;
+    padding: 0;
+    gap: 0;
+
+    &-details {
+      border-right: 1px solid #cccccc;
+      padding: 0;
+      margin: 1rem 0;
+      font-size: 1.5rem;
+      width: clamp(140px, 30%, 200px);
+      line-height: 1.5;
+
+      &:last-of-type {
+        border-right: none;
+      }
+    }
+  }
+
+  &__forecast {
+    @include flex-row;
+    padding: clamp(1rem, 2vw, 2rem) 0;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+  }
+
+  &__day {
+    @include flex-column;
+
+    img {
+      width: clamp(40px, 50%, 100px);
+      height: auto;
+      margin: 0 auto;
+    }
+
+    &-name {
+      font-size: 0.7rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    
+    &-temp {
+      font-size: 1rem;
+    }
+  }
+
+  &__location-list {
+    position: relative;
+
+    &.hide {
+      button::after {
+        content: "View Saved Locations";
+      }
+
+      ul {
+        display: none;
+        height:0;
+        transition: all 1s ease-in-out;
+      }
+     }
+    
+     &.show {
+      button::after {
+        content: "Close";
+      }
+
+      ul {
+        display: block;
+        height: auto;
+      }
+     }
+
+     button {
+      span {
+        display: inline-block;
+        vertical-align: middle;
+      }
+     }
+  }
+
+  &__saved-cities {
+    padding: 2rem;
+    text-align: left;
+
+    li {
+      display: flex;
+      justify-content: space-between;
+      align-content: start;
+      margin: .25rem 0;
+      gap: 1rem;
+    }
+
+    .saved-city {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      border: 1px solid #cccccc;
+      background-color: transparent;
+      text-align: left;
+      cursor: pointer;
+      width: 100%;
+      border-radius: 5px;
+      padding: .5rem;
+    }
+  }
+}
+
+h2 {
+  font-size: 2rem;
+
+  span {
+    display: block;
+    font-size: 1rem;
+    margin: .5rem 0;
+    color: #66c9f3;
+  }
+}
+
+h3 {
+  font-size: 1.2rem;
+}

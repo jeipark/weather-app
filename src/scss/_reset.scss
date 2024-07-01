@@ -1,0 +1,13 @@
+/* Reset */
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}

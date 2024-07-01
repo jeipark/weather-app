@@ -1,0 +1,21 @@
+/* Mixins*/
+@mixin list-reset {
+  list-style: none outside none;
+  margin: 0;
+  padding: 0;
+}
+
+@mixin flex {
+  display: flex;
+  justify-content: center;
+}
+
+@mixin flex-row {
+  @include flex;
+  flex-direction: row;
+}
+
+@mixin flex-column {
+  @include flex;
+  flex-direction: column;
+}

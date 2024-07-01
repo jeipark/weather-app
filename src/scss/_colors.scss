@@ -1,0 +1,46 @@
+/* Colors */
+
+
+
+
+$white: #ffffff;
+$black: #1c1c1c;
+
+$weather: (
+  "clear-sky": (
+    "background": #fcf0c1,
+    "text": #666666,
+  ),
+  "few-clouds": (
+    "background": #dfd8bb,
+    "text": #666666,
+  ),
+  "scattered-clouds": (
+    "background": #eff3f9,
+    "text": #666666,
+  ),
+  "broken-clouds": (
+    "background": #dddddd,
+    "text": #666666,
+  ),
+  "shower-rain": (
+    "background": #cccccc,
+    "text": #666666,
+  ),
+  "rain": (
+    "background": #bbbbbb,
+    "text": #666666,
+  ),
+  "thunderstorm": (
+    "background": #aaaaaa,
+    "text": #666666,
+  ),
+  "snow": (
+    "background": #ffffff,
+    "text": #666666,
+  ),
+  "mist": (
+    "background": #eeeeee,
+    "text": #666666,
+  ),
+);
