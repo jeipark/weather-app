@@ -4,7 +4,7 @@ $breakpoints: (
   mobile: 375px,
   l-mobile: 425px,
   tablet: 768px,
-  desktop: 1024,
+  desktop: 1024px,
   wide: 1440px,
   x-wide: 1401px,
 );
@@ -12,38 +12,3 @@ $breakpoints: (
 @function breakpoint($key) {
   @return map-get($breakpoints, $key);
 }
-
-
-:root {
-  --white: #edfce0;
-  --black: #000000;
-  --weather-color: #fef5d2;
-}
-
-$white: #f8fdff;
-
-$theme-colors: (
-    "light":      #edfce0,
-    "dark":       #0e3a49,
-    "primary":    #192e4f,
-    "secondary":  #fd4d7c,
-    "info":       #0caa6c,
-    "accent1":    #f94534,
-    "accent2":    #eeaa00,
-    "accent3":    #5578fa,
-    "success":    #48bc06,
-    "warning":    #ffc85f,
-    "danger":     #fd025b,
-);
-
-// $theme-colors {
-
-//   #fefffa
-// #00588b
-// #66c9f3
-// #fee317
-// #fe5e80
-// #feb329
-// #dedfe5
-// #c3c8c8
-// }

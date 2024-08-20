@@ -12,6 +12,23 @@
 </head>
 
 <body>
+  <header>
+    <!-- <div id="navMenu" class="">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div> -->
+
+    <div id="savedLocationsList" class="app-container__location-list hide">
+      <button id="viewLocations"><span class="material-symbols-outlined">favorite</span></button>
+      <div class="app-container__saved-cities">
+        <ul id="savedLocations"></ul>
+      </div>
+    </div>     
+  </header>
+  <nav>
+ 
+  </nav>
   <main>
     <section>
       <div class="app-container">
@@ -27,10 +44,10 @@
           </div>
         </div>
         <div class="app-container__bottom">
-          <div id="todayDate" class="app-container__date"></div>
           <div id="cityState" class="app-container__location">
             <h2></h2>
           </div>
+          <div id="todayDate" class="app-container__date"></div>
           <div id="saveCity" class="app-container__favorite-button">
             <button id="saveLocation" type="submit"><span class="material-symbols-outlined">heart_plus</span></button>
           </div>
@@ -47,10 +64,6 @@
           <ul id="forecastDates" class="app-container__forecast">
           </ul>
 
-          <div id="savedLocationsList" class="app-container__location-list hide">
-            <button id="viewLocations"><span class="material-symbols-outlined">favorite</span></button>
-            <ul id="savedLocations" class="app-container__saved-cities"></ul>
-          </div>
         </div>
       </div>
     </section>
@@ -59,6 +72,10 @@
       <div class="popup"></div>
     </div>
   </main>
+
+  <aside>
+      
+  </aside>
 
   <footer>
   </footer>

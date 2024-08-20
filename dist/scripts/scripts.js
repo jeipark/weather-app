@@ -269,7 +269,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (savedLocationsElement) {
       savedLocationsElement.innerHTML = savedLocations.map(location => `
-        <li><button class="saved-city" name="${location.City}" latitude="${location.Latitude}" longitude="${location.Longitude}">${location.City}: ${location.Latitude}, ${location.Longitude}</button> <button class="delete-city" name="${location.City}">Delete</button></li>
+        <li><button class="saved-city" name="${location.City}" latitude="${location.Latitude}" longitude="${location.Longitude}">${location.City}: ${location.Latitude}, ${location.Longitude}</button> <button class="delete-city" name="${location.City}"><span class="material-symbols-outlined">
+        delete
+        </span></button></li>
       `).join('');
     }
   }
@@ -356,5 +358,13 @@ document.addEventListener("DOMContentLoaded", () => {
   };
   const formattedCurrentDate = new Intl.DateTimeFormat("en-US", currentDateOptions).format(currentDate);
   document.getElementById("todayDate").innerHTML = `<h3>${formattedCurrentDate}</h3>`;  
+
+  /*
+  * Toggle hamburger menu
+  */
+const navMenu = document.getElementById("navMenu"); // Removed the '#' symbol
+ navMenu.addEventListener('click', function() {
+  navMenu.classList.toggle("active");
+});
 
 }); // End DOM
